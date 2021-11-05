@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
+use App\ProfileHistory;
+
+use Carbon\Carbon;
+
 class ProfileController extends Controller
 {
     public function add()
@@ -46,6 +50,11 @@ class ProfileController extends Controller
     
     $profile->fill($profile_form)->save();
     
-    return redirect('admin/news/');
+    $profile_history = new ProfileHistory();
+    $profile_history->profile_id = $profile->id;
+    $profile_history->edited_at = Carbon::now();
+    $profile_history->fill($profile_form)->save();
+    
+    return redirect('admin/profile');
   }
 }

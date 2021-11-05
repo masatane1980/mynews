@@ -74,7 +74,7 @@ class NewsController extends Controller
     $news = News::find($request->id);
     
     $news_form = $request->all();
-    if ($request->remove== 'true') {
+    if ($request->remove == 'true') {
       $news_form['image_path'] = null;
     } elseif ($request->file('image')) {
       $path = $request->file('image')->store('public/image');
@@ -93,7 +93,7 @@ class NewsController extends Controller
     $history->edited_at = Carbon::now();
     $history->save();
     
-    return redirect('admin/news/');
+    return redirect('admin/news');
   }
   
   public function delete(Request $request){
