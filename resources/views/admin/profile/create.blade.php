@@ -26,13 +26,12 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-2">
-                            <form method="post" action="">性別
+                            性別
                         </div>
                             <div class="col-md-10">
-                                <label><input type="radio" name="gender" value="{{ old('gender', '男性') }}">男性</label>
-                                <label><input type="radio" name="gender" value="{{ old('gender', '女性') }}">女性</label>
+                                <label><input type="radio" name="gender" value="男性">男性</label>
+                                <label><input type="radio" name="gender" value="女性">女性</label>
                             </div>
-                        </form>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>

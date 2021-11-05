@@ -21,34 +21,28 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-2">
-                            <form method="post" action="">性別
-                        </div>
+                        <div class="col-md-2">性別</div>
                             <div class="col-md-10">
-                                <label><input type="radio" name="gender" value="{{ $profile_gender->gender }}">男性</label>
-                                <label><input type="radio" name="gender" value="{{ $profile_gender->gender }}">女性</label>
+                                <label><input type="radio" name="gender" value="男性">男性</label>
+                                <label><input type="radio" name="gender" value="女性">女性</label>
                             </div>
                         </form>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">趣味</label>
+                        <label class="col-md-2" for="title">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="hobby">{{ $profile_form->hobby }}</textarea>
+                            <input type="text" class="form-control" name="hobby" value="{{ $profile_form->hobby }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="form-group row">
                         <label class="col-md-2" for="body">自己紹介欄</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
                         </div>
                     </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $news_form->id }}">
+                            <input type="hidden" name="id" value="{{ $profile_form->id }}">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>
