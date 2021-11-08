@@ -35,9 +35,10 @@ class ProfileController extends Controller
         
         $profile = Profile::find($request->id);
         if (empty($profile)) {
-          abort(404);
-    }
-    
+            abort(404);
+        }
+        
+        // dd($profile->histories);
         return view ('admin.profile.edit', ['profile_form' => $profile]);
         
     }
@@ -53,8 +54,27 @@ class ProfileController extends Controller
     $profile_history = new ProfileHistory();
     $profile_history->profile_id = $profile->id;
     $profile_history->edited_at = Carbon::now();
-    $profile_history->fill($profile_form)->save();
+    $profile_history->save();
     
-    return redirect('admin/profile');
+    return redirect('admin/profile/');
   }
+  
+  public function index(Request $request)
+ {
+     $profile_title = $request->profile_title;
+     if ($profile_title != '') {
+         $posts = Profile::where('name', $profile_title)->get();
+     }else{
+         $posts = Profile::all();
+     }
+     return view('admin.profile.index', ['posts' => $posts, 'profile_title' => $profile_title]);
+ }
+ 
+    public function delete(Request $request){
+        
+        $profile = Profile::find ($request->id);
+        
+        $profile->delete();
+        return redirect('admin/profile');
+    }
 }
