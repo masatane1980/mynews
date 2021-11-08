@@ -67,7 +67,7 @@ class ProfileController extends Controller
      }else{
          $posts = Profile::all();
      }
-     return view('admin.profile.index', ['posts' => $posts, 'profile_title' => $profile_title]);
+     return view('admin.profile.index', ['post' => $posts, 'profile_title' => $profile_title]);
  }
  
     public function delete(Request $request){
