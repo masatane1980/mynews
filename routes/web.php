@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('login', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('news/create', 'Admin\NewsController@add');
